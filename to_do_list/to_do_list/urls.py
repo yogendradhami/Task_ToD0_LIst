@@ -22,5 +22,6 @@ urlpatterns = [
     path('',include('app_todo.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/todo/', include('todo_api.urls')),
+    path('auth/', include('authentication.urls')),
 
 ]

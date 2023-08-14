@@ -1,37 +1,69 @@
 {% extends 'master/base.html' %}
+{% comment %} {% include 'layouts/main.html' %} {% endcomment %}
+
 {% load static %}
 
-{% block title %}
-Register
-{% endblock title %}
+{% comment %} {% block title %}
+    User - Register
+{% endblock %} {% endcomment %}
 
+{% block custom_css %}
+<link  href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"/>
 
+    
+{% endblock %}
 
 {% block content %}
-<div class="header-bar">
-    <h1>Register</h1>
 
-</div>
-<div class="card-body">
-    <form action="" method="post">
-    {% csrf_token %}
-    <label for="">{{form.username.label}}</label>
-    {{form.username}}
-    <label for="">{{form.password1.label}}</label>
-    {{form.password1}}
-    <label for="">{{form.password2.label}}</label>
-    {{form.password2}}
-    <input class="button
-    " type="submit" value="Register" style="margin-top: 10px;
-    ">
-</form>
 
-<p>Already have an account? <a href="{% url 'login' %}">Login</a> </p>
-</div>
+<body style=" background-color: rgb(244, 158, 158);">
+    <div class="container mt-5">
+        <div class="d-flex-row justify-content-center">
 
+            <!-- messeage section -->
+            {% include "partials/_message.html" %}
+
+            <div class="card p-4">
+                <h3>Create your account</h3>
+
+                <form action="{% url 'user_registration' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group mb-3">
+                        <label for="">First Name</label>
+                        <input type="text" class="form-control" name="first_name">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="">Last Name</label>
+                        <input type="text" class="form-control" name="last_name">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" name="username">
+
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" name="password">
+
+                    </div>
+                    <input type="submit" value="CREATE" class="btn btn-secondary col-12">
+                </form>
+                <h5 class="mt-3">already registered ? <a href="{% url 'user_login' %}">Click Here</a></h5>
+            </div>
+        </div>
+    </div>
+
+</body>
 
 
 {% endblock %}
-
-
-
+<hr>

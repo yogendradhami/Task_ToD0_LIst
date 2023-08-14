@@ -1,131 +1,85 @@
-<!DOCTYPE html>
 {% load static %}
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <!--  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <link  rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
 
-{% comment %} <link rel="stylesheet" href="{% static  'css/style.css' %}"> {% endcomment %}
-   
-    {% block title %}
-     <title>To Do List</title>
-    {% endblock title %}
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
-    <style>
-        body{
-            background-color:#FAFAFA;
-            font-family: Nunito,sans-serif;
-            padding-top: 50px;
-        }
-        h1,h2,h3,h4,h5,h6{
-            font-family:'Raleway', sans-serif;
-        }
-        a,p{
-            color: #4b5156;
-        }
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
 
-        .container{
-            max-width: 550px;
-            margin: auto;
-            background-color: #fff;
-            -webkit-box-shadow:2px 2px 13px -4px  rgba(0, 0, 0  0.21);
-            box-shadow: 2px 2px 13px -4px  rgba(0, 0, 0  0.21);
+    {% comment %} <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" /> {% endcomment %}
 
-        }
-        .header-bar{
-            display: flex;
-            color: #fff;
-            justify-content:space-between;
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
-            background: linear-gradient(90deg,  #EEA390 0%, #E8796F 43%, #EB796F 100%);
-        }
-        .header-bar a{
-            color: rgb(247,247,247);
-            text-decoration: none;
-        }
-        .task-wrapper{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding:20px;
-            background-color: #fff;
-            border-top: 1px solid rgb(226, 226, 226);
-        }
-        .task-title a{
-            text-decoration: none;
-            color: #4b5156;
-            margin-left: 10px;
-        }
-        .task-complete-icon{
-            height: 20px;
-            width: 20px;
-            background-color: rgb(105, 192, 105);
-            border-radius: 50%;
-        }
-        .task-incomplete-icon{
-            height: 20px;
-            width: 20px;
-            background-color: rgb(218,218,218);
-            border-radius: 50%;
-        }
-        .delete-link{
-            text-decoration: none;
-            font-weight: 900;
-            color: #cf4949;
-            font-size: 22px;
-            line-height: 0;
-        }
-        #search-add-wrapper{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;    
-        }
 
-        #add-link{
-            color: #E8796F;
-            text-decoration: none;
-            font-size: 42px;
-            text-shadow: 1px 1px #81413b;
-        }
-        input[type=text],input[type=password],textarea{
-            border: 1px solid #EB796F;
-            border-radius: 5px;
-            padding: 10px;
-            width: 90%;
-        }
-        label{
-            padding-top: 10px !important;
-            display: block;
-        }
-        .button{
-            border: 1px solid #E8796F;
-            border-color: #FAFAFA;
-            color: #E8796F;
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .card-body{
-            padding: 20px;
-        }
-    </style>
+    
 
-  
-</head>
-<body>
-    <div class="container">
-        {% block content %}
+    
 
-        {% endblock %}
-    </div>
-</body>
+
+
+    <!-- title -->
+    <title>
+      {% block title %}
+      
+      
+        To_Do List
+
+      {% endblock %}
+  </title>
+
+    {% load static %}
+    
+
+    <!-- custom css -->
+
+    {% block custom_css %}
+
+    <link rel="stylesheet" href="{% static  'css/style.css' %}">
+ 
+      
+    {% endblock %}
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </head>
+
+  <body>
+    <body>
+        <div class="container">
+            {% block content %}
+    
+            {% endblock %}
+        </div>
+
+        
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      
+    <!-- custom js -->
+    {% block custom_js %}
+        <!-- js source over here -->
+     
+                
+    {% endblock %}
+
+
+  </body>
 </html>
