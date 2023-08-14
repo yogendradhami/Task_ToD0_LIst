@@ -3,5 +3,5 @@ from .models import *
 
 class ToDoSerializer(serializers.ModelSerializer):
     class Meta:
-        model=ToDo
+        model=Task
         fields="__all__"

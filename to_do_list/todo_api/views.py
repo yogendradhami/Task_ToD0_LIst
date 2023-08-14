@@ -9,7 +9,7 @@ from .serializers import ToDoSerializer
 # Create your views here.
 # code for rest api
 class ToDoViewSet(viewsets.ModelViewSet):
-    queryset=ToDo.objects.all()
+    queryset=Task.objects.all()
     serializer_class=ToDoSerializer
     filter_backends=[DjangoFilterBackend,filters.OrderingFilter,filters.SearchFilter]
     filterset_fields=('title','user','is_complete')

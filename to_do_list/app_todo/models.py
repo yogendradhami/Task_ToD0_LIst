@@ -3,7 +3,7 @@ from django.conf import settings
 # from django.contrib.auth.models import User
 # Create your models here.
 
-class ToDo(models.Model):
+class Task(models.Model):
     title=models.CharField(max_length=90,null=False)
     description=models.TextField(null=True)
     user=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,related_name='todo',null=True,blank=True,)
