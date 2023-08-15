@@ -83,5 +83,6 @@ class TaskUpdate(LoginRequiredMixin,UpdateView):
 
 class TaskDelete(DeleteView):
     model=Task
+    template_name='todo/task_confirm_delete.html'
     context_object_name='task'
     success_url = reverse_lazy('tasks')

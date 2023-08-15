@@ -60,7 +60,7 @@ class ToDoApiView(APIView):
 class ToDoApiIdView(APIView):
     def get_object(self,id):
         try:
-            data=Task.objects.all(id=id)
+            data=Task.objects.get(id=id)
             return data
         except Task.DoesNotExist:
             return None
@@ -83,9 +83,9 @@ class ToDoApiIdView(APIView):
         serializer=ToDoSerializer(data=request,instance=instance)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.error,status=status.HTTP_200_OK)
+            return Response(serializer.errors,status=status.HTTP_200_OK)
         else:
-            return Response(serializer.error,status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
         
 
 
@@ -93,6 +93,9 @@ class ToDoApiIdView(APIView):
         instance=self.get_object(id=id)
 
         if not instance:
-            return Response({"msg":"Deleted Successfully"}, status=status.HTTP_200_OK)
+            return Response({"msg":"Not Found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        instance.delete()
+        return Response({"msg":"Deleted successfully"}, status=status.HTTP_200_OK)
 
 

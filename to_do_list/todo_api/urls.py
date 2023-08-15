@@ -14,6 +14,7 @@ from .views import *
 # urlpatterns =router.urls
 
 urlpatterns=[
+    # path('api/todo/',ToDoViewSet.as_view(),name='todo'),
     path('api/to-do/',ToDoApiView.as_view()),
-    path('api/to=do/<int:id>',ToDoApiIdView.as_view())
+    path('api/to-do/<int:id>/',ToDoApiIdView.as_view()),
 ]
