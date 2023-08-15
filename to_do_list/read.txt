@@ -1,0 +1,9 @@
+requirements
+1. install virtual environment.
+2. install django.
+3. install rest_framework.
+4. install django_filter.
+5. makemigrations.
+6. create superuser.
+7. admin username: yogen ,password:12345
+8. different applications are created for rest api, authenetication.
